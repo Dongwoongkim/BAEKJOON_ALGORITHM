@@ -1,0 +1,1 @@
+cout << sheep << ' ' << wolf << endl;
