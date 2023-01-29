@@ -33,11 +33,7 @@ int main()
                 // 범위밖
                 if(x1-l < 0 || x1+l >=m || y1-l < 0 || y1+l >=n) break;
                 if(area[y1][x1+l]!='#' || area[y1+l][x1]!='#' || area[y1][x1-l]!='#' || area[y1-l][x1]!='#') break;
-                
-                area[y1][x1+l]='*'; 
-                area[y1][x1-l]='*'; 
-                area[y1+l][x1]='*'; 
-                area[y1-l][x1]='*';
+                area[y1][x1+l]='*'; area[y1][x1-l]='*'; area[y1+l][x1]='*'; area[y1-l][x1]='*';
 
                 // 십자가 2 
                 for(int y2=0;y2<n;y2++)
@@ -52,18 +48,17 @@ int main()
                         }
                     }
                 }
+            }
 
                 
-                // 십자가 1 원상복구
-                for(int l=0;;l++)
-                {
-                    if(x1-l < 0 || x1+l>=m || y1-l < 0 || y1+l >=n) break;
-                    if(area[y1][x1+l]!='*' || area[y1+l][x1]!='*' || area[y1][x1-l]!='*' || area[y1-l][x1]!='*') break;
-                    
-                    area[y1][x1+l]='#'; area[y1][x1-l]='#'; area[y1+l][x1]='#'; area[y1-l][x1]='#';
-                }    
-            
-            }
+            // 십자가 1 원상복구
+            for(int l=0;;l++)
+            {
+                if(x1-l < 0 || x1+l>=m || y1-l < 0 || y1+l >=n) break;
+                if(area[y1][x1+l]!='*' || area[y1+l][x1]!='*' || area[y1][x1-l]!='*' || area[y1-l][x1]!='*') break;
+                
+                area[y1][x1+l]='#'; area[y1][x1-l]='#'; area[y1+l][x1]='#'; area[y1-l][x1]='#';
+            }    
         }
     }
 
