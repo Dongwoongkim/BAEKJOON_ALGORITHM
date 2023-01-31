@@ -9,7 +9,7 @@ using namespace std;
 
 vector<vector<char>> v(1001,vector<char>(1001));
 bool check[1001][1001][11];
-int n,m,k;
+int n,m;
 int dy[]={-1,1,0,0};
 int dx[]={0,0,-1,1};
 
@@ -39,7 +39,7 @@ int bfs(int y,int x)
 
             if(ny>=0 && nx>=0 && ny<n && nx<m)
             {
-                if(check[ny][nx][cnt+1]==false && v[ny][nx]=='1' &&cnt<k)
+                if(check[ny][nx][cnt+1]==false && v[ny][nx]=='1' &&cnt<1)
                 {
                     q.push(make_pair(make_pair(ny,nx),make_pair(cnt+1,ans+1)));
                     check[ny][nx][cnt+1] = true;
@@ -60,7 +60,7 @@ int bfs(int y,int x)
 int main()
 {
     FASTio;
-    cin >> n >> m >> k;
+    cin >> n >> m;
     for(int i=0;i<n;i++)
     {
         for(int j=0;j<m;j++)
