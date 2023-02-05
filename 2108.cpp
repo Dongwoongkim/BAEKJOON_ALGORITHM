@@ -2,50 +2,65 @@
 #include <vector>
 #include <algorithm>
 #include <utility>
-#include <map>
 #define FASTio ios_base :: sync_with_stdio(false), cin.tie(NULL), cout.tie(NULL)
 #define endl '\n' 
 
 using namespace std;
-int n,num;
-int m=-1;
-int mi=-1;
-int sum=0;
-vector<int> v;
-int arr[8002];
 
 int main()
 {
     FASTio;
+
+    int n;
     cin >> n;
+
+    int sum=0;
     for(int i=0;i<n;i++)
     {
-        cin >> num;
-        sum += num;
-        arr[num+4000]++;
-        v.push_back(num);
+        cin >> num[i];
+        sum+=num[i];
+
     }
 
-    sort(v.begin(),v.end());
+        Arrays.sort(num);
+        int[] freq = new int[8001];
 
-    for(int i=0;i<8002;i++)
-    {
-        if(arr[i]>m)
+        for(int i=0;i<n;i++)
         {
-            m = arr[i];
-            mi = i;
+            freq[num[i]+4000]++;
         }
-    }
 
+        int m=0;
 
-    cout << sum/n << endl;
-    cout << v[n/2] << endl;
+        for(int i=8000;i>=0;i--)
+        {
+            if(freq[i]>=freq[m])
+            {
+                m = i;
+            }
+        }
 
-   
-    cout << mi-4000 << endl;
+        for(int i=m+1;i<8001;i++)
+        {
+            if(freq[m]==freq[i])
+            {
+                m = i;
+                break;
+            }
+        }
 
-    cout << v[n-1]-v[0] << endl; 
-
-
+        double first = (double)(sum)/n;
+        if(0>first && first>-0.5)
+        {
+            System.out.println(0);
+        }
+        else
+        {
+            System.out.printf("%.0f\n",(double)(sum)/n);
+        }
+        System.out.printf("%d\n",num[n/2]);
+        System.out.println(m-4000);
+        System.out.printf("%d\n",num[n-1]-num[0]);
     return 0;
 }
+

@@ -12,7 +12,6 @@ int n, m;
 int ans=-1;
 int dy[]={-1,1,0,0};
 int dx[]={0,0,1,-1};
-vector<vector<bool>> check(51,vector<bool>(51));
 
 int bfs(queue<pair<int,int>> &q,vector<vector<bool>> check, vector<vector<int>> visited)
 {   
@@ -63,6 +62,7 @@ int bfs(queue<pair<int,int>> &q,vector<vector<bool>> check, vector<vector<int>> 
     }
     return result;
 }
+
 int main()
 {
     FASTio;
@@ -80,6 +80,8 @@ int main()
         }
     }
 
+
+    // 조합 
     vector<int> k(virus.size());
     for(int i=0;i<m;i++)
     {
@@ -91,12 +93,11 @@ int main()
     }
     sort(k.begin(),k.end());
     
-
     do
     {   
         queue<pair<int,int>> q;
-        vector<vector<int>> visited(51,vector<int>(51));
-        vector<vector<bool>> check(51,vector<bool>(51));
+        vector<vector<int>> visited(51,vector<int>(51,0));
+        vector<vector<bool>> check(51,vector<bool>(51,false));
 
         for(int i=0;i<virus.size();i++)
         {
@@ -105,6 +106,7 @@ int main()
                 int y,x;
                 tie(y,x) = virus[i];
                 q.push(make_pair(y,x));
+                check[y][x]=true;
             }
         }
 
