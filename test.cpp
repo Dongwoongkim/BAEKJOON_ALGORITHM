@@ -9,9 +9,16 @@ using namespace std;
 
 int main()
 {
-    int a = -1;
-    FASTio;
 
-    cout << !a;
+    FASTio;
+    int i,j;
+    for(i=0;i<3;i++)
+    {
+        for(j=i+1;j<3;j++)
+        {
+            cout << i << j << endl;
+            i = j;
+        }
+    }
     return 0;
 }
