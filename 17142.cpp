@@ -52,10 +52,10 @@ int bfs(queue<pair<int,int>> &q,vector<vector<bool>> check, vector<vector<int>> 
                         q.push({ny,nx});
                     }
                 }
-                
             }
+            
+            q.pop();
         }    
-        q.pop();
     }
 
     // cout<<endl;for(int i=0;i<n;i++){for(int j=0;j<n;j++) { cout << visited[i][j] << ' '; }cout<<endl;}

@@ -39,8 +39,8 @@ int bfs(queue<pair<int,int>> &q,vector<vector<bool>> check, vector<vector<int>> 
                     }
                 }
             }
+            q.pop();
         }    
-        q.pop();
     }
 
     for(int i=0;i<n;i++)
