@@ -14,7 +14,6 @@ int dy[]={-1,1,0,0};
 int dx[]={0,0,1,-1};
 int blank;
 
-
 int bfs(queue<pair<int,int>> &q,vector<vector<bool>> check, vector<vector<int>> visited, vector<vector<bool>> &awake,int ans)
 {   
     int result=-1;
@@ -58,8 +57,6 @@ int bfs(queue<pair<int,int>> &q,vector<vector<bool>> check, vector<vector<int>> 
         }    
     }
 
-    // cout<<endl;for(int i=0;i<n;i++){for(int j=0;j<n;j++) { cout << visited[i][j] << ' '; }cout<<endl;}
-
 
     if(blank==cnt)
     {
@@ -74,7 +71,6 @@ int bfs(queue<pair<int,int>> &q,vector<vector<bool>> check, vector<vector<int>> 
             }
         }
     }
-
 
     return result;
 }
@@ -101,7 +97,7 @@ int main()
         }
     }
 
-    // 조합 
+    // 조합 초기 작업
     vector<int> k(virus.size());
     for(int i=0;i<m;i++)
     {
@@ -114,7 +110,7 @@ int main()
     }
     sort(k.begin(),k.end());
 
-    // O(2^10)
+    // 조합 
     do
     {   
         queue<pair<int,int>> q;
