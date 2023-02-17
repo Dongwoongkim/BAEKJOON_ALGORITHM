@@ -30,21 +30,15 @@ int main()
 
     for(int i=1;i<=n;i++)
     {
-        cout << e[i] << endl;
-    }
-
-    for(int i=1;i<=n;i++)
-    {
         v.push_back(e[i]);
     }
 
-    sort(v.begin(),v.end());
 
-    for(int i=n-1;i>0;i--)
+    sort(v.begin(),v.end(),greater<>());
+
+    for(int i=0;i<k;i++)
     {   
-        if(cnt == k) break;
         sum += v[i];
-        cnt++;
     }
 
     cout << fixed;
