@@ -6,17 +6,12 @@
 #define endl '\n' 
 
 using namespace std;
-
+long long n,m,k;
 int main()
 {
-    
     FASTio;
-    int x=1,y=6;
-    while(y--)
-    {
-        x++;
-    }
-    cout << x << ' ' << y << endl;
+    cin >> n >> m >> k;
 
+    cout << k/m << ' ' << k%m;
     return 0;
 }

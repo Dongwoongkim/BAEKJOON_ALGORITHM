@@ -9,14 +9,13 @@ using namespace std;
 
 int main()
 {
-    
     FASTio;
-    int x=1,y=6;
-    while(y--)
+    int n;cin>>n;
+    for(int i=4;i<=n;i+=4)
     {
-        x++;
+        cout << "long ";
     }
-    cout << x << ' ' << y << endl;
 
+    cout << "int";
     return 0;
 }
