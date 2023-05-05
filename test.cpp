@@ -9,14 +9,15 @@ using namespace std;
 
 int main()
 {
-    
     FASTio;
-    int x=1,y=6;
+    int x=1;
+    int y=6;
+
     while(y--)
     {
         x++;
     }
-    cout << x << ' ' << y << endl;
 
+    cout << x << ' ' << y;
     return 0;
 }
