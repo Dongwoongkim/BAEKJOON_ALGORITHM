@@ -29,7 +29,9 @@ def dijkstra(start, destination):
 
 answer = 0
 for i in range(1, n+1):
-
+    '''
+    왔다갔다 한번에 다익스트라 해서 계산
+    '''
     answer = max(dijkstra(i, x) + dijkstra(x, i), answer)
 
 print(answer)

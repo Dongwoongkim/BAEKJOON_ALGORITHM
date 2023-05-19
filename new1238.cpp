@@ -47,19 +47,23 @@ int main()
 {
     FASTio;
     cin >> n >> m >> x;
-    
+
+    // 100만
     for(int i=0;i<m;i++){
         scanf("%d %d %d", &s,&e,&t);
         v[s].push_back(make_pair(e,t));
         v[e].push_back(make_pair(s,t));
     }
 
+    // 50만 
     for(int i=1;i<=n;i++){
         d[i] = INF;
     }
-
+    
+    // 100만 (log 50만)
     dijksta(x);
     
+    // 50만 
     for(int i=1;i<=n;i++){
         if(d[i] == INF) cout<<"INF"<<endl;
         else cout<<d[i]<<endl;
