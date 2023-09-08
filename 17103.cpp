@@ -41,7 +41,7 @@ int main()
         cin >> num;
         bool wrong = true;
         vector<bool> check(1000001,false);
-        for(int a=2;a<=num;a+=2)
+        for(int a=2;a<=num;a++)
         {   
             if(arr[a] != 0 && arr[num-a] !=0 && !check[a] && !check[num-a])
             {
