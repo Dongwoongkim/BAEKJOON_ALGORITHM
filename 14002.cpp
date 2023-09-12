@@ -14,6 +14,8 @@ int n;
 vector<int> v(1001,0);
 int d[1001];
 int ans;
+
+stack<int> st;
 int main()
 {
     FASTio;
@@ -25,24 +27,38 @@ int main()
         d[i] = 1;
     }
 
-
     for(int i=0;i<n;i++)
-    {
+    {  
         for(int j=i+1;j<n;j++)
         {
             if(v[j] > v[i])
-            {
+            {   
                 d[j] = max(d[i] + 1, d[j]);
-            } 
+            }
         }
     }
 
     for(int i=0;i<n;i++)
     {   
-        cout << d[i] << ' ';
         ans = max(ans, d[i]);
     }
 
-    cout << endl << ans;
+    cout << ans << endl;
+
+    int k = ans;
+    for(int i=n-1;i>=0;i--)
+    {
+        if(d[i]==k)
+        {
+            st.push(v[i]);
+            k--;
+        }
+    }
+    while(!st.empty())
+    {
+        cout << st.top() << ' ';
+        st.pop();
+
+    }
     return 0;
 }

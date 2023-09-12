@@ -30,7 +30,7 @@ int main()
     {
         for(int j=i+1;j<n;j++)
         {
-            if(v[j] > v[i])
+            if(v[j] < v[i])
             {
                 d[j] = max(d[i] + 1, d[j]);
             } 
@@ -39,10 +39,9 @@ int main()
 
     for(int i=0;i<n;i++)
     {   
-        cout << d[i] << ' ';
         ans = max(ans, d[i]);
     }
 
-    cout << endl << ans;
+    cout << ans;
     return 0;
 }
