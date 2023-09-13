@@ -14,11 +14,8 @@ int n;
 vector<int> v(100001);
 vector<int> d(100001);
 
-int sum;
-int ans;
-int idx;
-int m = -1001;
-int midx;
+int ans = -1001;
+
 int main()
 {
     FASTio;
@@ -29,11 +26,16 @@ int main()
         cin >> v[i];
     }
 
-    d[0]=v[0];
+    d[0] = v[0];
+
     for(int i=1;i<n;i++)
     {   
         d[i] = max(v[i]+d[i-1],v[i]);
-        ans = max(ans,d[i]);
+    }
+
+    for(int i=0;i<n;i++)
+    {
+        ans = max(ans, d[i]);
     }
 
     cout << ans;

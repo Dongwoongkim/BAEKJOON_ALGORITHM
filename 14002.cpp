@@ -45,13 +45,14 @@ int main()
 
     cout << ans << endl;
 
-    int k = ans;
-    for(int i=n-1;i>=0;i--)
+    int k = 1;
+
+    for(int i=0;i<n;i++)
     {
         if(d[i]==k)
         {
             st.push(v[i]);
-            k--;
+            k++;
         }
     }
     while(!st.empty())

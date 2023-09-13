@@ -8,54 +8,40 @@
 #define endl '\n' 
 
 using namespace std;
-int num;
-int n = 1000001;
-int arr[1000001];
+
+int n;
+int sum;
+long long d[1001][11];
 
 int main()
 {
     FASTio;
-
-    for(int i=2;i<=n;i++)
-    {
-        arr[i] = i;
-    }
-
-    for(int i=2; i<=n ;i++)
-    {
-        if(arr[i]==0) continue;
-
-        for(int j=2*i;j<=n;j+=i)
-        {
-            arr[j] = 0;
-        }
-    }
-
-    cin >> num;
-
-    while(num)
-    {   
-        bool wrong = true;
-        for(int a=3;a<=num;a+=2)
-        {   
-            if(arr[a] != 0 && arr[num-a] !=0)
-            {
-                wrong = false;
-                cout << num << " = " << a  << " + " << num-a << endl;
-                break;
-            } 
-        }
-
-        if(wrong)
-        {
-            cout << "Goldbach's conjecture is wrong." << endl;
-        }
-
-        cin >> num;
-    }
     
+    cin >> n;
 
+    for(int i=0;i<=9;i++)
+    {   
+        d[1][i] = 1;
+        d[2][i] = i+1;
+    }
 
+    for(int i=3;i<=n;i++)
+    {
+        for(int j=0;j<=9;j++)
+        {
+            for(int k=0;k<=j;k++)
+            {
+                d[i][j] += d[i-1][k]%10007 ;
+            }
+        }
+    }
+
+    for(int i=0;i<=9;i++)
+    {
+        sum += d[n][i]%10007;
+    }
+
+    cout << sum%10007;
 
     return 0;
 }
