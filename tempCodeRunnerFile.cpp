@@ -1,44 +1,10 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <utility>
-#include <stack>
-#include <queue>
-#define FASTio ios_base :: sync_with_stdio(false), cin.tie(NULL), cout.tie(NULL)
-#define endl '\n' 
-
-using namespace std;
-
-int n;
-
-vector<int> v(100001);
-vector<int> d(100001);
-
-int sum;
-int ans;
-int idx;
-int m = -1001;
-int midx;
-int main()
-{
-    FASTio;
-    cin >> n;
-    
-    for(int i=0;i<n;i++)
-    {
-        cin >> v[i];
-    }
-
-    d[0]=v[0];
-    for(int i=1;i<n;i++)
-    {   
-        d[i] = max(v[i]+d[i-1],v[i]);
-        ans = max(ans,d[i]);
-    }
-
-    cout << ans;
-
-    
-
-    return 0;
-}
+if(k==1)
+                {
+                    d[i+1][0] = min(d[i+1][0], d[i][1] + v[i+1][0]);
+                    d[i+1][2] = min(d[i+1][2], d[i][1] + v[i+1][2]);
+                }
+                if(k==2)
+                {
+                    d[i+1][0] = min(d[i+1][0], d[i][1] + v[i+1][0]);
+                    d[i+1][1] = min(d[i+1][1], d[i][2] + v[i+1][1]);
+                }
