@@ -25,24 +25,22 @@ int main()
     }
 
     d[0][0] = v[0];
-    d[1][0] = v[0];
 
     for(int i=1;i<n;i++)
     {       
         d[0][i] = max(v[i]+d[0][i-1],v[i]);
     }
 
+    d[1][0] = v[0];
     for(int i=1;i<n;i++)
     {
         d[1][i] = max(d[1][i-1] + v[i], d[0][i-1]); 
     }
-
-
+    
     for(int i=0;i<2;i++)
     {
         for(int j=0;j<n;j++)
         {   
-            cout << d[i][j] << ' ';
             ans = max(ans,d[i][j]);
         }
         cout << endl;
