@@ -25,12 +25,18 @@ void rec(int pos)
         {   
             if(v[way[i]][way[i+1]]==0)
             {
-                sum = 1000000*5;
-                break;
+                return;
             }
             sum += v[way[i]][way[i+1]];
         }
-        sum += v[way[n-1]][way[0]];
+
+        if(v[way[n-1]][way[0]] == 0) 
+        {
+            return;
+        } else
+        {
+            sum += v[way[n-1]][way[0]];
+        }
         ans = min(sum,ans);
     }
     else
